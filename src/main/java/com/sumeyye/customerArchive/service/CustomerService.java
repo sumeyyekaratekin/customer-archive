@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 @Service
 @Transactional
 
-public class CustomerService {
+public class CustomerService implements CustomerServiceI{
 
 
     private final CustomerRepository customerRepository;
@@ -41,7 +41,7 @@ public class CustomerService {
 
     }
 
-    public void updateCustomer(Customer customer, Integer id) {
+    public void updateCustomer(Customer customer,Integer id) {
         getCustomer(id); // check if customer not exist
         customer.setId(id);
         saveCustomer(customer);

@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class FileStorageService {
+public class FileStorageService implements FileService {
     private final FileRepository fileRepository;
     private final CustomerService customerService;
 
@@ -53,18 +53,18 @@ public class FileStorageService {
         return allFiles.stream().map(this::mapToResponseFile).collect(Collectors.toList());
     }
 
-    private ResponseFile mapToResponseFile(File dbFile) {
+    private ResponseFile mapToResponseFile(File file) {
         String fileDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
                 .path("/files/")
-                .path(dbFile.getId())
+                .path(file.getId())
                 .toUriString();
         return new ResponseFile(
-                dbFile.getName(),
+                file.getName(),
                 fileDownloadUri,
-                dbFile.getType(),
-                dbFile.getData().length,
-                dbFile.getCustomer().getId()
+                file.getType(),
+                file.getData().length,
+                file.getCustomer().getId()
         );
     }
 

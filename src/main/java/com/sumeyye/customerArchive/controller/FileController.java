@@ -54,4 +54,9 @@ public class FileController {
                         "attachment; filename=\"" + file.getName() + "\"")
                 .body(file.getData());
     }
+    @DeleteMapping("/files/{id}")
+    public void deleteFile(@PathVariable String id) {
+        storageService.deleteFile(id);
+    }
+
 }

@@ -49,6 +49,11 @@ public class FileStorageService {
         List<File> allFiles = fileRepository.findAllByCustomerId(customerId);
         return mapToResponseFileList(allFiles);
     }
+
+    public void deleteFile(String id) {
+        fileRepository.deleteById(id);
+
+    }
     private List<ResponseFile> mapToResponseFileList(List<File> allFiles) {
         return allFiles.stream().map(this::mapToResponseFile).collect(Collectors.toList());
     }

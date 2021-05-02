@@ -14,7 +14,7 @@ import com.sumeyye.customerArchive.service.FileStorageService;
 import com.sumeyye.customerArchive.message.*;
 import com.sumeyye.customerArchive.model.File;
 
-@Controller
+@RestController
 @CrossOrigin("http://localhost:8081")
 public class FileController {
 

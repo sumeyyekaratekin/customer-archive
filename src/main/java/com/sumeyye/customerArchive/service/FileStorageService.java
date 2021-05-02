@@ -16,20 +16,20 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class FileServiceImpl implements FileService {
+public class FileStorageService {
     private final FileRepository fileRepository;
-    private final CustomerServiceImpl customerServiceImpl;
+    private final CustomerService customerService;
 
     @Autowired
-    public FileServiceImpl(FileRepository fileRepository, CustomerServiceImpl customerServiceImpl) {
+    public FileStorageService(FileRepository fileRepository, CustomerService customerService) {
         this.fileRepository = fileRepository;
-        this.customerServiceImpl = customerServiceImpl;
+        this.customerService = customerService;
     }
 
     public String store(MultipartFile fileRequest, Integer customerId) throws IOException {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(fileRequest.getOriginalFilename()));
 
-        Customer customer = customerServiceImpl.getCustomer(customerId);
+        Customer customer = customerService.getCustomer(customerId);
 
         File file = new File(fileName, fileRequest.getContentType(), fileRequest.getBytes(), customer);
         fileRepository.save(file);
@@ -53,18 +53,18 @@ public class FileServiceImpl implements FileService {
         return allFiles.stream().map(this::mapToResponseFile).collect(Collectors.toList());
     }
 
-    private ResponseFile mapToResponseFile(File file) {
+    private ResponseFile mapToResponseFile(File dbFile) {
         String fileDownloadUri = ServletUriComponentsBuilder
                 .fromCurrentContextPath()
                 .path("/files/")
-                .path(file.getId())
+                .path(dbFile.getId())
                 .toUriString();
         return new ResponseFile(
-                file.getName(),
+                dbFile.getName(),
                 fileDownloadUri,
-                file.getType(),
-                file.getData().length,
-                file.getCustomer().getId()
+                dbFile.getType(),
+                dbFile.getData().length,
+                dbFile.getCustomer().getId()
         );
     }
 

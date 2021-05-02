@@ -16,20 +16,20 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class FileStorageService implements FileService {
+public class FileServiceImpl implements FileService {
     private final FileRepository fileRepository;
-    private final CustomerService customerService;
+    private final CustomerServiceImpl customerServiceImpl;
 
     @Autowired
-    public FileStorageService(FileRepository fileRepository, CustomerService customerService) {
+    public FileServiceImpl(FileRepository fileRepository, CustomerServiceImpl customerServiceImpl) {
         this.fileRepository = fileRepository;
-        this.customerService = customerService;
+        this.customerServiceImpl = customerServiceImpl;
     }
 
     public String store(MultipartFile fileRequest, Integer customerId) throws IOException {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(fileRequest.getOriginalFilename()));
 
-        Customer customer = customerService.getCustomer(customerId);
+        Customer customer = customerServiceImpl.getCustomer(customerId);
 
         File file = new File(fileName, fileRequest.getContentType(), fileRequest.getBytes(), customer);
         fileRepository.save(file);

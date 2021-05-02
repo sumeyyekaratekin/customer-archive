@@ -1,8 +1,7 @@
 package com.sumeyye.customerArchive.controller;
 
-import com.sumeyye.customerArchive.service.CustomerService;
+import com.sumeyye.customerArchive.service.CustomerServiceImpl;
 import com.sumeyye.customerArchive.model.Customer;
-import com.sumeyye.customerArchive.message.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -17,21 +16,21 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     @Autowired
-    CustomerService customerService;
+    CustomerServiceImpl customerServiceImpl;
 
 
     @GetMapping("/")
     public List<Customer> list() {
         String message = "";
         message = "Müşteriler Listelendi";
-        return customerService.listAllCustomer();
+        return customerServiceImpl.listAllCustomer();
 
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Integer id) {
         try {
-            Customer customer = customerService.getCustomer(id);
+            Customer customer = customerServiceImpl.getCustomer(id);
             return new ResponseEntity<Customer>(customer, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
@@ -40,13 +39,13 @@ public class CustomerController {
 
     @PostMapping("/")
     public void add(@RequestBody Customer customer) {
-        customerService.saveCustomer(customer);
+        customerServiceImpl.saveCustomer(customer);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Customer customer, @PathVariable Integer id) {
         try {
-            customerService.updateCustomer(customer, id);
+            customerServiceImpl.updateCustomer(customer, id);
 
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
@@ -57,6 +56,6 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
 
-        customerService.deleteCustomer(id);
+        customerServiceImpl.deleteCustomer(id);
     }
 }

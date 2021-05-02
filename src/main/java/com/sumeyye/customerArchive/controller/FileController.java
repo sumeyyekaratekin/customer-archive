@@ -1,16 +1,14 @@
 package com.sumeyye.customerArchive.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.sumeyye.customerArchive.service.FileStorageService;
+import com.sumeyye.customerArchive.service.FileServiceImpl;
 import com.sumeyye.customerArchive.message.*;
 import com.sumeyye.customerArchive.model.File;
 
@@ -18,10 +16,10 @@ import com.sumeyye.customerArchive.model.File;
 @CrossOrigin("http://localhost:8081")
 public class FileController {
 
-    private final FileStorageService storageService;
+    private final FileServiceImpl storageService;
 
     @Autowired
-    public FileController(FileStorageService storageService) {
+    public FileController(FileServiceImpl storageService) {
         this.storageService = storageService;
     }
 

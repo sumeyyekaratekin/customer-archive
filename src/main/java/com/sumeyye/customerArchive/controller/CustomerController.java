@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
@@ -20,10 +21,8 @@ public class CustomerController {
     CustomerService customerService;
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Customer> list() {
-        String message = "";
-        message = "Müşteriler Listelendi";
         return customerService.listAllCustomer();
 
     }
@@ -38,7 +37,7 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Customer customer) {
         customerService.saveCustomer(customer);
     }

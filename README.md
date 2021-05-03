@@ -50,8 +50,6 @@
 --------------------------------------------------------------------------
 
 ## Example Output
-File Upload
 ![fileupload](https://github.com/sumeyyekaratekin/customer-archive/blob/main/res/upload.png)
 
-Get File
 ![fileuploadget](https://github.com/sumeyyekaratekin/customer-archive/blob/main/res/uploadGet.png)

@@ -36,15 +36,22 @@
 
 
 `GET` :     `/cutomers` &nbsp;&nbsp;&nbsp;&nbsp;<i>get List of Customers</i>
+
 `GET` :     `customers/[id]`  &nbsp;&nbsp;&nbsp; <i>get Customer by id</i>
+
 `POST`:    `/customers/`      &nbsp;&nbsp;&nbsp; <i>add Customer</i>
+
 `PUT` :    `/customers/[id]`   &nbsp;&nbsp;&nbsp; <i>update Customer</i>
+
 `DELETE`:   `/customers/[id]`  &nbsp;&nbsp;&nbsp; <i>delete Customer</i>
 
 --------------------------------------------------------------------------
 `GET` :     `/files` &nbsp;&nbsp;&nbsp;&nbsp;<i>get List of Files</i>
+
 `GET` :     `/files/[id]`  &nbsp;&nbsp;&nbsp; <i>get Files by id</i>
+
 `POST` :    `/upload`      &nbsp;&nbsp;&nbsp; <i>upload File (customerId) </i>
+
 `DELETE`:   `/files/[id]`  &nbsp;&nbsp;&nbsp; <i>delete file</i>
 
 --------------------------------------------------------------------------

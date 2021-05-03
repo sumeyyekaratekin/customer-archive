@@ -20,7 +20,7 @@
 
 ## Database
 
-![database](https://github.com/sumeyyekaratekin/RentACarProject/blob/main/res/database.png) 
+![database](https://github.com/sumeyyekaratekin/customer-archive/blob/main/res/database.png) 
 
 ## Er Diagram
 &nbsp;&nbsp;&nbsp;&nbsp; 📃 [er-veri-modeli.mwb](https://github.com/sumeyyekaratekin/customer-archive/blob/main/res/er-veri-modeli.mwb)

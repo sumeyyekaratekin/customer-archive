@@ -35,7 +35,7 @@
 `http://localhost:8080`
 
 
-`GET` :     `/cutomers` &nbsp;&nbsp;&nbsp;&nbsp;<i>get List of Customers</i>
+`GET` :     `/customers` &nbsp;&nbsp;&nbsp;&nbsp;<i>get List of Customers</i>
 
 `GET` :     `customers/[id]`  &nbsp;&nbsp;&nbsp; <i>get Customer by id</i>
 

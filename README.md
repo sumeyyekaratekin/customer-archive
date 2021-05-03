@@ -27,7 +27,7 @@
 
 
 ## SQL Query
-&nbsp;&nbsp;&nbsp;&nbsp; 📃 [SQLQueryDataBase.sql](https://github.com/sumeyyekaratekin/customer-archive/tree/main/res)
+&nbsp;&nbsp;&nbsp;&nbsp; 📃 [SQLQueryDataBase.sql](https://github.com/sumeyyekaratekin/customer-archive/blob/main/res/SqlQueryDatabase.sql)
 
 
 ## Endpoints
